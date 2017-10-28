@@ -1,0 +1,5 @@
+<p><%= @order_item.product.name %></p>
+<%= form_for @order_item, url: {action: "update"} do |f| %>
+  <%= f.number_field  :qty, min:1, max:10 %>
+  <%= f.submit "修改" %>
+<% end %>

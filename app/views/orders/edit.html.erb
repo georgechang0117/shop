@@ -1,0 +1,13 @@
+<p><%= link_to '回到上頁', order_path(@order) %></p>
+<table class="bordered">
+<% @order.order_items.each do |order_item| %>
+  <tr>
+    <td><%= order_item.product.name %></td>
+    <td><%= order_item.qty %></td>
+    <td><%= order_item.price %></td>
+    <td><%= link_to '編輯', edit_order_order_item_path(@order, order_item) %></td>
+    <td><%= link_to '取消', order_order_item_path(@order, order_item), method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+<p>Total price: <%= @order.total_price %></p>

@@ -1,0 +1,26 @@
+<table class="bordered">
+<% @order.order_items.each do |order_item| %>
+  <tr>
+    <td><%= order_item.product.name %></td>
+    <td><%= order_item.qty %></td>
+    <td><%= order_item.price %></td>
+  </tr>
+<% end %>
+</table>
+<p>Total price: <%= @order.total_price %></p>
+
+<%= link_to '修改', edit_order_path(@order) %>
+
+<p>修改記錄</p>
+<table class="bordered">
+<% @order.associated_audits.where.not(action: :create).order(created_at: :desc).each do |audit| %>
+  <tr>
+    <td><%= audit.action %></td>
+    <td><%= audit.revision.product.name %></td>
+    <td><%= audit.revision.qty %></td>
+    <td><%= audit.revision.price %></td>
+    <td><%= audit.user %></td>
+    <td><%= audit.created_at %></td>
+  </tr>
+<% end %>
+</table>

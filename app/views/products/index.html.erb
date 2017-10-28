@@ -1,0 +1,11 @@
+<table>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.price %></td>
+      <td><%= link_to '加入購物車', add_cart_path(product), method: "post", class: "btn btn-xs btn-danger" %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to '查看購物車', cart_path %>
