@@ -1,3 +1,4 @@
+<h1>購物車</h1>
 <%= link_to '回到產品頁', products_path %>
 <table class="bordered">
   <% @cart.items.each do |item| %>
@@ -9,5 +10,5 @@
     </tr>
   <% end %>
 </table>
-<%= link_to '訂購', orders_path, method: :post %><br>
+<%= link_to '訂購', orders_path, method: :post, class: "waves-effect waves-light btn" %><br>
 <%= link_to '清空購物車', cart_path, method: :delete %>

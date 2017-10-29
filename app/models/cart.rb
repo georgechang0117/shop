@@ -11,7 +11,7 @@ class Cart
     if car_item
       car_item.increase
     else
-      @items << CartItem.new(product_id)  
+      @items << CartItem.new(product_id)
     end
     
   end
